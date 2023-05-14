@@ -33,14 +33,24 @@ Constraints:
 Solution-------------
 */
 
+class Solution {
 public static long findMaxSubsetSum(int N, int[] A) {
-    int maxSum = A[0];
-    int currentSum = 0; // initialize to zero
+    int maxSum = 0;
+    int currentSum = 0;
     
     for (int i = 0; i < N; i++) {
-        currentSum = Math.max(A[i], currentSum + A[i]);
-        maxSum = Math.max(maxSum, currentSum);
+         
+        currentSum =currentSum + A[i];
+       if(currentSum>maxSum){
+           maxSum=currentSum;
+       }
+       if(currentSum<0){
+           currentSum=0;
+       }
+
     }
     
     return maxSum;
+}
+
 }
