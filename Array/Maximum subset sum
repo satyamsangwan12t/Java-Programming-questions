@@ -1,0 +1,11 @@
+public static long findMaxSubsetSum(int N, int[] A) {
+    int maxSum = A[0];
+    int currentSum = 0; // initialize to zero
+    
+    for (int i = 0; i < N; i++) {
+        currentSum = Math.max(A[i], currentSum + A[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    
+    return maxSum;
+}
